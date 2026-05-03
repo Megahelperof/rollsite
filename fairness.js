@@ -2,17 +2,17 @@
   (function(){
     var gameNames = ['Case Battles','Loot Cases','Roll','Blackjack','Mines','Towers','Dice Duels','Crash'];
     window.fairShow = function(idx, btn) {
-      // Update active tab button
+
       var buttons = document.querySelectorAll('.Fairness_article-options_Kj0ED button');
       buttons.forEach(function(b, i) {
         b.classList.toggle('Fairness_expand_AFO9x', i === idx);
         var span = b.querySelector('span');
         if (span) span.classList.toggle('fade-green', i === idx);
       });
-      // Update game title link
+
       var title = document.getElementById('fairGameTitle');
       if (title) title.textContent = gameNames[idx];
-      // Show only the selected code block
+
       var blocks = document.querySelectorAll('.Fairness_article-code_nsZ8b');
       blocks.forEach(function(blk, i) {
         blk.classList.toggle('Fairness_active_lUOUe', i === idx);

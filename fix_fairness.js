@@ -2,7 +2,6 @@ const fs = require('fs');
 
 let html = fs.readFileSync('C:\\sY26\\client\\fairness.html', 'utf8');
 
-// Replace the first block with the user's provided code
 const firstBlockRegex = /<div class="Fairness_article-code_nsZ8b Fairness_active_lUOUe"><pre class="language-javascript" tabindex="0"><code class="language-javascript">[\s\S]*?<\/code><\/pre><\/div>/;
 
 const userCode = `<div class="Fairness_article-code_nsZ8b Fairness_active_lUOUe"><pre class="language-javascript" tabindex="0"><code class="language-javascript">
@@ -30,7 +29,6 @@ fairGetBattlesOutcome();
 
 html = html.replace(firstBlockRegex, userCode);
 
-// Untokenize the rest of the blocks
 const blockRegex = /<div class="Fairness_article-code_nsZ8b"><pre class="language-javascript" tabindex="0"><code class="language-javascript">([\s\S]*?)<\/code><\/pre><\/div>/g;
 
 html = html.replace(blockRegex, (match, p1) => {

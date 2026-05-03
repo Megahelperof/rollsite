@@ -57,7 +57,6 @@
     }
     a { text-decoration: none; }
 
-    /* Global font enforcement — everything uses Geogrotesque Wide */
     body, input, textarea, select, button,
     h1, h2, h3, h4, h5, h6, p, span, div, a, li, ol, ul {
       font-family: 'Geogrotesque Wide', sans-serif;
@@ -746,7 +745,6 @@ nav {
       }
     }
 
-    /* ===== Home surveys banner ===== */
     .Home_home-surveys_vjLIs {
         position: relative;
         display: flex;
@@ -920,7 +918,6 @@ nav {
         font-size: 3px;
     }
 
-    /* ===== Bets list ===== */
     .Bets_bets_ZKrz9 {
         max-width: 1350px;
         width: 100%;
@@ -1202,7 +1199,6 @@ nav {
         z-index: 1
     }
 
-    /* ===== Footer (exact styles from app.3d062369.css) ===== */
     .Footer_footer_ogIiA {
         width: 100%;
         display: flex;
@@ -1362,14 +1358,8 @@ nav {
         }
     }
 
-/* ===== Logged-in header (Wallet / Notifications / User dropdown) =====
-   The detailed styles for the Navbar* components come from app.3d062369.css.
-   These rules make the elements sit nicely inside the nav and provide
-   sensible fallbacks for the nested components. */
-
-/* Centered Wallet + balance widget (absolutely positioned inside <nav>). */
 .logged-in-center {
-    display: none; /* flipped to flex by JS after sign-in */
+    display: none; 
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1378,9 +1368,8 @@ nav {
     z-index: 3;
 }
 
-/* Notifications bell container (sits inside .nav-actions, before chat). */
 .logged-in-header {
-    display: none; /* flipped to flex by JS after sign-in */
+    display: none; 
     align-items: center;
     gap: 10px;
 }
@@ -1399,14 +1388,11 @@ nav {
     font-family: 'Geogrotesque Wide', 'Rubik', sans-serif;
 }
 
-/* PFP avatar circle (sits inside .nav-actions, AFTER chat button). */
 .logged-in-pfp {
-    display: none; /* flipped to flex by JS after sign-in */
+    display: none; 
     align-items: center;
 }
 
-/* Matches the site's real markup: row-reverse puts the Wallet button on the
-   RIGHT and the balance pill on the LEFT. */
 .NavbarCashier_navbar-cashier_WfUR2 {
     display: flex;
     flex-direction: row-reverse;
@@ -1415,9 +1401,6 @@ nav {
     gap: 5px;
 }
 
-/* Purple "Wallet" button (real site uses #5d56a7 with octagonal clip-path
-   backgrounds supplied by .octagonal::before / .octagonal::after). No
-   .hoverable class on this button so there is no brightness hover effect. */
 .NavbarCashier_button-cashier_zD1fJ.wallet-btn {
     position: relative;
     display: flex;
@@ -1438,7 +1421,6 @@ nav {
     z-index: 0;
 }
 
-/* Octagonal body of the wallet button — purple. */
 .NavbarCashier_button-cashier_zD1fJ.wallet-btn::before,
 .NavbarCashier_button-cashier_zD1fJ.wallet-btn::after {
     background: #5d56a7;
@@ -1446,7 +1428,6 @@ nav {
 }
 
 .NavbarCashier_button-cashier_zD1fJ.wallet-btn:hover {
-    /* Intentionally no brightness shift — user asked for no hover on wallet. */
     filter: drop-shadow(0 2px 0 #32335f);
 }
 
@@ -1466,8 +1447,6 @@ nav {
     line-height: 1;
     position: relative;
     z-index: 1;
-    /* Real site hides the "Wallet" text at this breakpoint; keep it visible
-       on wide screens only. */
     display: none;
 }
 
@@ -1483,8 +1462,6 @@ nav {
     position: relative;
 }
 
-/* Gems balance pill — dark #132c41 octagonal body, sits to the LEFT of the
-   wallet button (container uses flex-direction: row-reverse). */
 .NavbarCashier_cashier-dropdown_T1Fbz {
     position: relative;
     max-width: 175px;
@@ -1514,8 +1491,6 @@ nav {
     font-size: 3px;
 }
 
-/* Dark square-ish panel sitting BEHIND the gem coin icon (real site uses an
-   octagonal clip-path so the corners are cut). */
 .NavbarCashier_button-icon_RspDs {
     position: relative;
     min-width: 30px;
@@ -1553,9 +1528,6 @@ nav {
     align-items: center;
 }
 
-/* Balance number — copied from the real site (app.3d062369.css). The outer
-   font-size is intentionally small so the inner <span> (the whole value)
-   is 1.33em of it, which gives the proper visual weight. */
 .AmountNumber_amount-number_DzoaU {
     font-size: 10px;
     font-weight: 700;
@@ -1588,7 +1560,6 @@ nav {
     position: relative;
 }
 
-/* Default user-dropdown button (if rendered elsewhere, keeps extra info panel). */
 .NavbarUserDropdown_dropdown-button_HvtGe {
     display: flex;
     align-items: center;
@@ -1600,8 +1571,6 @@ nav {
     font-weight: 600;
 }
 
-/* When rendered inside #loggedInPfp, render as a bare circle (no padding,
-   no info panel — we already stripped the username/level markup). */
 #loggedInPfp .NavbarUserDropdown_dropdown-button_HvtGe {
     padding: 0;
     background: transparent;
@@ -1677,7 +1646,6 @@ nav {
     background: linear-gradient(90deg, #00ffc2, #00aa6d);
 }
 
-/* Cashier balance dropdown menu (slides down from the balance pill). */
 .NavbarCashier_dropdown-menu_oQ2QZ {
     max-height: 0;
     width: 230px;
@@ -1742,7 +1710,6 @@ nav {
     line-height: 11px;
 }
 
-/* Notifications + user dropdown still use a simple popover on hover. */
 .NavbarNotifications_notifications-menu_x88Kf,
 .NavbarUserDropdown_dropdown-menu_d_hVa {
     display: none;
@@ -1760,14 +1727,10 @@ nav {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
-/* Notifications still open on hover (they are a tiny panel). */
 .NavbarNotifications_navbar-notifications_hbsah:hover .NavbarNotifications_notifications-menu_x88Kf {
     display: block;
 }
 
-/* The user (PFP) dropdown is CLICK-ONLY, matching the Play button's
-   behaviour. The .open class is toggled on #loggedInPfp by togglePfpMenu()
-   in index.js and cleared on outside-click / Escape. */
 .logged-in-pfp.open .NavbarUserDropdown_dropdown-menu_d_hVa {
     display: block;
 }
@@ -1810,18 +1773,12 @@ nav {
     color: #cbd9e3;
 }
 
-/* Hide the centered wallet only on truly narrow screens (phones).
-   Previously this was set to 1100px which hid the Wallet + balance pill
-   whenever Brave (or any other browser) was used in a half-screen window
-   on a 1920px monitor. 750px keeps it visible down to most tablets and
-   only hides it on phone-sized viewports. */
 @media screen and (max-width: 750px) {
     .logged-in-center { display: none !important; }
 }
 
-/* ===== Cashier modal (matches real app.3d062369.css) ================= */
 .cashier-modal-overlay {
-    display: none; /* flipped to flex by JS when opened */
+    display: none; 
     position: fixed;
     inset: 0;
     background: rgba(2, 20, 35, 0.5);
@@ -1844,9 +1801,6 @@ body.modal-open { overflow: hidden; }
     width: 100%;
 }
 
-/* The modal body uses an octagonal clip-path (from --octagonal-main /
-   --octagonal-before / --octagonal-after), drawn via ::before and ::after
-   pseudo-elements. */
 .Modals_body-modal_sHcp0 {
     position: relative;
     color: #fff;
@@ -1859,7 +1813,6 @@ body.modal-open { overflow: hidden; }
     background: none;
 }
 
-/* Dark radial background behind the whole modal. */
 .Modals_body-modal_sHcp0::after {
     content: "";
     position: absolute;
@@ -1874,7 +1827,6 @@ body.modal-open { overflow: hidden; }
     clip-path: var(--octagonal-main);
 }
 
-/* Outer octagonal border (#1b3053) and inner octagonal body (dark gradient). */
 .Modals_body-modal_sHcp0 > :not(.Modals_button-close_dkGqv)::before,
 .Modals_body-modal_sHcp0 > :not(.Modals_button-close_dkGqv)::after {
     content: "";
@@ -1898,7 +1850,6 @@ body.modal-open { overflow: hidden; }
     background: linear-gradient(-45deg, #042036, #042039);
 }
 
-/* Close button (X) */
 .Modals_button-close_dkGqv {
     width: 35px;
     height: 35px;
@@ -1932,7 +1883,6 @@ body.modal-open { overflow: hidden; }
 
 .Modals_button-close_dkGqv:hover svg { fill: #cbd9e3; }
 
-/* ---- ModalCashier ---- */
 .ModalCashier_modal-cashier_uREsb {
     max-width: calc(100vw - 40px);
     width: 784px;
@@ -2045,7 +1995,6 @@ body.modal-open { overflow: hidden; }
     padding: 0 14px;
 }
 
-/* Bonus-code input row */
 .CashierBonus_cashier-bonus_AXP__ {
     align-items: center;
     position: relative;
@@ -2122,7 +2071,6 @@ body.modal-open { overflow: hidden; }
     z-index: 1;
 }
 
-/* Method-type row (Fiat / Crypto / Roblox / Steam) */
 .ModalCashier_cashier-method_uB4nP {
     border-bottom: 1px solid #0a2f4d;
     padding-bottom: 15px;
@@ -2166,7 +2114,6 @@ body.modal-open { overflow: hidden; }
     color: #21b894;
 }
 
-/* Deposit tab (grid of elements) */
 .CashierDepositTab_cashier-deposit_Vgie1 {
     margin-bottom: 6px;
     width: 100%;
@@ -2179,7 +2126,6 @@ body.modal-open { overflow: hidden; }
     gap: 12px;
 }
 
-/* Cashier element card (Deposit with Card) */
 .CashierElement_cashier-element_mKjsP {
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.067));
     position: relative;

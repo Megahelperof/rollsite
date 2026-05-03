@@ -57,7 +57,6 @@
     }
     a { text-decoration: none; }
 
-    /* Global font enforcement — everything uses Geogrotesque Wide */
     body, input, textarea, select, button,
     h1, h2, h3, h4, h5, h6, p, span, div, a, li, ol, ul {
       font-family: 'Geogrotesque Wide', sans-serif;
@@ -746,7 +745,6 @@ nav {
       }
     }
 
-    /* ===== Home surveys banner ===== */
     .Home_home-surveys_vjLIs {
         position: relative;
         display: flex;
@@ -920,7 +918,6 @@ nav {
         font-size: 3px;
     }
 
-    /* ===== Bets list ===== */
     .Bets_bets_ZKrz9 {
         max-width: 1350px;
         width: 100%;
@@ -1202,7 +1199,6 @@ nav {
         z-index: 1
     }
 
-    /* ===== Footer (exact styles from app.3d062369.css) ===== */
     .Footer_footer_ogIiA {
         width: 100%;
         display: flex;
@@ -1362,7 +1358,6 @@ nav {
         }
     }
   
-    /* ===== Fairness page (exact styles from app.3d062369.css) ===== */
     .Fairness_fairness_CoeNZ {
         width: 100%;
         position: relative;
@@ -1488,7 +1483,6 @@ nav {
         .Fairness_fairness_CoeNZ { padding: 30px 10px 45px 10px; }
     }
 
-    /* fade-green gradient (used in active tab) */
     .fade-green {
         background: linear-gradient(250deg, #00ffc2, #48d49c 50%, #00aa6d), #a6cae8;
         -webkit-background-clip: text;
@@ -1497,7 +1491,6 @@ nav {
         color: transparent;
     }
 
-    /* Prism Monokai syntax highlighting (from app.3d062369.css) */
     code[class*="language-"], pre[class*="language-"] {
         color: #f8f8f2;
         background: #272822;

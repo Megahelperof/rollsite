@@ -1,6 +1,4 @@
 
-  // Simulated login state (frontend only — no backend).
-  // Persists across page reloads using localStorage.
   function isLoggedIn() {
     try { return localStorage.getItem('rollbet_logged_in') === '1'; } catch (e) { return false; }
   }
@@ -12,16 +10,12 @@
     } catch (e) {}
   }
 
-  // When the "Sign in" button is clicked we simulate a successful login:
-  // all Sign in / Sign In buttons are hidden and the logged-in header
-  // (Wallet, Notifications, User Dropdown) is revealed.
   function openLogin() {
     setLoggedIn(true);
     applyAuthState();
   }
 
   function openRegister() {
-    // Reuse the same flow — there's no real backend.
     openLogin();
   }
 
@@ -30,7 +24,6 @@
     applyAuthState();
   }
 
-  // --- Cashier modal ---------------------------------------------------
   function openCashier() {
     var modal = document.getElementById('cashierModal');
     if (!modal) return;
@@ -45,27 +38,19 @@
     document.body.classList.remove('modal-open');
   }
 
-  // Close the cashier if the user clicks the dark overlay (outside the modal body).
   function closeCashierOnOverlay(e) {
     if (e && e.target && e.target.id === 'cashierModal') closeCashier();
   }
 
-  // Shows / hides header elements based on the current (simulated) auth state.
   function applyAuthState() {
     var loggedIn = isLoggedIn();
 
-    // Hide every Sign in / Sign In button on the page when logged in.
     var signinButtons = document.querySelectorAll('.signin-btn, .nav-actions .btn-ghost, .mobile-menu .btn-ghost');
     signinButtons.forEach(function (btn) {
-      // Skip buttons that live inside the logged-in header itself.
       if (btn.closest && btn.closest('#loggedInHeader')) return;
       btn.style.display = loggedIn ? 'none' : '';
     });
 
-    // Show the logged-in header parts:
-    //   - #loggedInCenter : centered wallet + balance
-    //   - #loggedInHeader : notifications bell (sits inside nav-actions before chat)
-    //   - #loggedInPfp    : avatar circle (sits inside nav-actions after chat)
     var center = document.getElementById('loggedInCenter');
     if (center) center.style.display = loggedIn ? 'flex' : 'none';
 
@@ -93,8 +78,6 @@
     document.getElementById('playDropdownWrap').classList.toggle('open');
   }
 
-  // PFP (user) dropdown works the same way as the Play menu:
-  // it toggles on click (not hover) and closes on outside-click / Escape.
   function togglePfpMenu(e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
     var pfp = document.getElementById('loggedInPfp');
@@ -128,13 +111,11 @@
       var pfp = document.getElementById('loggedInPfp');
       if (pfp) pfp.classList.remove('open');
 
-      // Also close the cashier modal on Escape.
       var modal = document.getElementById('cashierModal');
       if (modal && modal.style.display !== 'none') closeCashier();
     }
   });
 
-  // On page load, apply the (possibly persisted) auth state.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', applyAuthState);
   } else {
